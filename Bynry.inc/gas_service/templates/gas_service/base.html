@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Gas Utility Service</title>
+</head>
+<body>
+    <header>
+        <h1>Gas Utility Service</h1>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="{% url 'submit_request' %}">Submit Request</a></li>
+            <li><a href="{% url 'request_tracking' %}">Request Tracking</a></li>
+            {% if user.is_staff %}
+                <li><a href="{% url 'support_management' %}">Support Management</a></li>
+            {% endif %}
+            
+        </ul>
+    </nav>
+    <!-- <nav>
+        <ul>
+            <li><a href="{% url 'submit_request' %}">Submit Request</a></li>
+            <li><a href="{% url 'request_tracking' %}">Request Tracking</a></li>
+            {% if user.is_staff %}
+                <li><a href="{% url 'support_management' %}">Support Management</a></li>
+                <li><a href="{% url 'support_dashboard' %}">Support Dashboard</a></li>
+            {% else %}
+                <li><a href="{% url 'customer_dashboard' %}">Customer Dashboard</a></li>
+            {% endif %}
+            <li><a href="{% url 'logout' %}">Logout</a></li>
+        </ul>
+    </nav> -->
+    <!-- <nav>
+        <ul>
+            <li><a href="{% url 'submit_request' %}">Submit Request</a></li>
+            <li><a href="{% url 'request_tracking' %}">Request Tracking</a></li>
+            <li><a href="{% url 'customer_login' %}">Customer Login</a></li>
+            <li><a href="{% url 'support_login' %}">Support Login</a></li>
+        </ul>
+    </nav> -->
+    
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+    
+    <footer>
+        <p>&copy; 2023 Gas Utility Service</p>
+    </footer>
+</body>
+</html>

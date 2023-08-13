@@ -1,0 +1,25 @@
+{% extends 'gas_service/base.html' %}
+
+{% block content %}
+    <h2>Customer Support Dashboard</h2>
+    <table>
+        <tr>
+            <th>User</th>
+            <th>Request Type</th>
+            <th>Status</th>
+            <th>Submitted At</th>
+            <th>Resolved At</th>
+            <th>Action</th>
+        </tr>
+        {% for request in requests %}
+            <tr>
+                <td>{{ request.user }}</td>
+                <td>{{ request.get_request_type_display }}</td>
+                <td>{{ request.status }}</td>
+                <td>{{ request.created_at }}</td>
+                <td>{{ request.resolved_at }}</td>
+                <td><a href="{% url 'provide_response' request.id %}">Provide Response</a></td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

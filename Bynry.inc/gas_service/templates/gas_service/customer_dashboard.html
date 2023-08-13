@@ -1,0 +1,21 @@
+{% extends 'gas_service/base.html' %}
+
+{% block content %}
+    <h2>Customer Dashboard</h2>
+    <table>
+        <tr>
+            <th>Request Type</th>
+            <th>Status</th>
+            <th>Submitted At</th>
+            <th>Resolved At</th>
+        </tr>
+        {% for request in requests %}
+            <tr>
+                <td>{{ request.get_request_type_display }}</td>
+                <td>{{ request.status }}</td>
+                <td>{{ request.created_at }}</td>
+                <td>{{ request.resolved_at }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

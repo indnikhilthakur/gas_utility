@@ -1,0 +1,10 @@
+{% extends 'gas_service/base.html' %}
+
+{% block content %}
+    <h2>Provide Response for {{ service_request.get_request_type_display }}</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit Response</button>
+    </form>
+{% endblock %}
